@@ -17,6 +17,7 @@
 \hypersetup{pdfpagemode=FullScreen}
 
 \usepackage{siunitx}
+\usepackage[]{algorithm2e}
 
 \usepackage{caption}
 \captionsetup{font=scriptsize,labelfont=scriptsize}
@@ -438,19 +439,42 @@ Simulation en accord avec la valeur théorique
 
 \begin{frame}
     \frametitle{Structure globale du code}
+    Le code est découpée en plusieurs parties :
+    \begin{itemize}
+        \item Constantes et définitions des structures de données ;
+        \item Lecture des paramètres du problèmes et calcul des grandeurs dérivées ;
+        \item Module de calcul des variables ;
+        \item Module de détermination des courbes en S, points critiques ;
+        \item Module d’intégration, de calcul des pas de temps ;
+        \item Programme principal : logique du code et appel des différents modules.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Algorithme de la simulation}
-    Pseudo-code
-    \begin{minipage}{.5\textwidth}
-    \end{minipage}%
-    \begin{minipage}{.5\textwidth}
-    \end{minipage}
+    \begin{algorithm}[H]
+        \For{i = 1, n\_iterations}{
+            unstable = max($T$ - $T_c$) > 0 {\bf or} max($S$ - $S_c$) > 0\;
+            \eIf{unstable}{
+                compute($dt_T$)\;
+                compute\_exp($S$, $dt_T$)\;
+                compute\_exp($T$, $dt_T$)\;
+            }{
+                compute($dt_\nu$)\;
+                compute\_imp($S$, $dt_\nu$)\;
+                \While{$T - T_{prev}$ > $\epsilon_T$}{
+                    compute\_imp($dt_T$)\;
+                    compute\_imp($T$, $dt_T$)\;
+                }
+                \If{$S - S_{prev}$ > $\epsilon_T$}{
+                    Mdot(r\_max) $\times$= 1.05\;
+                }
+            }
+        }
+    \end{algorithm}
 \end{frame}
 
 \begin{frame}
-    \includegraphics{Qmap.pdf}
+    \includegraphics[width=\textwidth]{Qmap.pdf}
 \end{frame}
 
 \subsection{Domaine stable}
