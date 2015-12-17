@@ -2,12 +2,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
-\usepackage{xcolor}
 \usetheme{Warsaw}
 
 \usepackage{caption}
 \captionsetup{font=scriptsize,labelfont=scriptsize}
 
+\usepackage{array,multirow,makecell}
+\setcellgapes{1pt}
+\makegapedcells
 
 
 
@@ -19,15 +21,6 @@
    \framesubtitle{Sommaire}
    \tableofcontents[currentsection]
 \end{frame}
-
-\AtBeginSection[]
-{
-  \begin{frame}
-    \frametitle{Table des matières}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
-
 
 
 %_______________________________________
@@ -270,6 +263,7 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 \begin{frame}
 \frametitle{Comparaison des différentes méthodes}
 
+   \setcellgapes{4pt}
    \begin{tabular}{|c|c|c|}
      \hline
         Méthode & + & - \\
@@ -371,13 +365,11 @@ Simulation en accord avec la valeur théorique
 
    \begin{figure}[htb!]
       \includegraphics[width=9cm]{figures/S_curves_tau.eps}
-      %\caption{ }
    \end{figure}
 \end{frame}
 %_______________________________________
 
-%_______________________________________
-\section{Intégration}
+
 \begin{frame}
     \frametitle{Conditions aux bords}
 \end{frame}
@@ -398,106 +390,12 @@ Simulation en accord avec la valeur théorique
    \end{figure}
 \end{frame}
 
-\subsection{Domaine stable}
 \begin{frame}
-  \frametitle{Intégration dans le domaine stable}
-  \uncover<1->{
-    Équation continue:
-    \begin{equation}
-      \frac{\partial S }{\partial t} = \frac{1}{x^2} \frac{\partial^2}{\partial x^2}\left(\nu S\right)
-    \end{equation}
-    Discrétisable, 2 choix : dérivée en $S^{t+1}$ ou $S^t$
-  }
-  \uncover<2->{
-    \begin{equation}
-      \frac{S_n^{t+1} - S_n^t}{\Delta t} = \frac{1}{{x_n}^2}
-      \frac{ S_{n-1}^{t+?}\nu_{n-1}^{t}
-        - 2S_{n}^{t+?}\nu_{n}^{t}
-        + S_{n+1}^{t+?}\nu_{n+1}^{t}}{\Delta x^2}
-    \end{equation}
-  }
-\end{frame}
-\begin{frame}
-  \frametitle{Intégration dans le domaine stable -- schéma implicite}
-  \only<1,4>{
-    \begin{equation}\begin{aligned}
-      S^{t}_n  &= S_{n-1}^{t+1}\left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{n-1}^t}{x_n^2}\right)\\
-               &+ S_n^{t+1}\left(1 + 2\frac{\Delta t}{\Delta x^2}\frac{\nu_n^t}{x_n^2}\right) \\
-               &+ S_{n+1}^{t+1}\left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{n+1}^t}{x_n^2}\right) \\
-    \end{aligned}\end{equation}
-}
-  \only<2>{
-    \begin{equation}\begin{aligned}
-      S^{t}_1 &= 0\\
-      &+ S_1^{t+1}\left(1 + 2\frac{\Delta t}{\Delta x^2}\frac{\nu_1^t}{x_1^2}\right)\\
-      &+ S_{2}^{t+1}\left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{2}^t}{x_1^2}\right)\\
-    \end{aligned}\end{equation}
-  }
-  \only<3>{
-    \begin{equation}\begin{aligned}
-      S^{t}_N + \frac{\Delta t}{\Delta x}\frac{\dot{M}_0 }{x_N^2}
-                      &= S^{t+1}_{N-1} \left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{N-1}^t}{x_N^2}\right) \\
-                      &+ S_N^{t+1} \left(1 + \frac{\Delta t}{\Delta x^2}\frac{\nu^t_N}{x_N^2}\right )\\
-    \end{aligned}\end{equation}
-  }
-  \uncover<3> {
-    Utilise $\frac{\nu_{N+1} S_{N+1} - \nu_{N}S_{N}}{\Delta x} = \dot{M}_0$ 
-  }
+    \frametitle{Intégration dans le domaine stable}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Intégration dans le domaine stable -- schéma implicite}
-  \only<1-2>{
-    Équation obtenue:
-    
-    \begin{equation}
-      A^t S^{t+1} = S^{t} + \Lambda^t
-    \end{equation}
-    $A^t$ est une matrice tridiagonale réelle, $\Lambda^t$ est une vecteur.
-
-    \uncover<2>{
-      Solution:
-      
-      \begin{equation}
-        S^{t+1} = \left(A^t\middle)^{-1}\middle[S^t + \Lambda^t\right]
-      \end{equation}
-    }
-  }
-  \only<3->{
-    On abandonne, et on demande à Lapack. Merci Lapack.
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{Intégration dans le domaine stable -- schéma implicite}
-  {\huge Avantages, inconvénients}
-  
-  \begin{itemize}
-    \item stable $\forall \Delta t > 0$ $\rightarrow$ intégration rapide
-    \item peut s'éloigner de la solution physique
-  \end{itemize}
-  
-\end{frame}
-
-\subsection{Domaine instable}
-
-\begin{frame}
-  \frametitle{Intégration hors du domaine stable}
-  \uncover<1->{
-    \begin{equation}\begin{aligned}
-      S^{t+1}_n  &= S_{n-1}^{t}\left(\frac{\Delta t}{\Delta x^2}\frac{\nu_{n-1}^t}{x_n^2}\right)\\
-               &+ S_n^{t}\left(1 - 2\frac{\Delta t}{\Delta x^2}\frac{\nu_n^t}{x_n^2}\right) \\
-               &+ S_{n+1}^{t}\left(\frac{\Delta t}{\Delta x^2}\frac{\nu_{n+1}^t}{x_n^2}\right) \\
-    \end{aligned}\end{equation}  
-  }
-  \uncover<2->{
-    Instable ssi
-    \begin{equation}
-      \bigg(\underbrace{\frac{\Delta x^2}{\Delta t} \bigg.}_\mathrm{vit. num.}\bigg)^{-1} \times
-      \underbrace{\bigg.\frac{\nu}{x^2}}_\mathrm{vit. diff.} > 0.5
-    \end{equation}    
-  }
-  
+    \frametitle{Intégration hors du domaine stable}
 \end{frame}
 
 \end{document}
