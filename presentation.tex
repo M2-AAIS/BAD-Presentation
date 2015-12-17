@@ -7,6 +7,7 @@
 
 \usepackage{caption}
 \captionsetup{font=scriptsize,labelfont=scriptsize}
+\setbeamertemplate{caption}[numbered]
 
 
 
@@ -14,16 +15,16 @@
 
 \begin{document}
 
-\begin{frame}
-   \frametitle{Courbe en S}
-   \framesubtitle{Sommaire}
-   \tableofcontents[currentsection]
-\end{frame}
+% \begin{frame}
+%    \frametitle{Courbe en S}
+%    \framesubtitle{Sommaire}
+%    \tableofcontents[currentsection]
+% \end{frame}
 
 \AtBeginSection[]
 {
   \begin{frame}
-    \frametitle{Table des matières}
+    \frametitle{Sommaire}
     \tableofcontents[currentsection]
   \end{frame}
 }
@@ -31,8 +32,8 @@
 
 
 %_______________________________________
-\begin{frame}
 \section{Présentation du problème}
+\begin{frame}
 \frametitle{Mise en équation}
 
    \begin{itemize}
@@ -57,8 +58,8 @@
 %_______________________________________
 
 %_______________________________________
-\begin{frame}
 \section{Résolution des équations}
+\begin{frame}
 \frametitle{Résolution des équations}
 
    \begin{itemize}
@@ -298,8 +299,8 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 
 %_______________________________________
 
-\begin{frame}
 \section{Détermination des points critiques}
+\begin{frame}
 \frametitle{Zones de stabilité}
 
    \begin{figure}[htb!]
@@ -313,8 +314,8 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 
 %_______________________________________
 
-\begin{frame}
 \section{Epaisseur optique}
+\begin{frame}
 
    \begin{figure}[htb!]
       \includegraphics[width=8cm]{figures/tau_map.pdf}
@@ -324,9 +325,8 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 %_______________________________________
 
 %_______________________________________
-
-\begin{frame}
 \section{Différence des termes Q+ et Q-}
+\begin{frame}
 
    \begin{figure}[htb!]
       \includegraphics[width=8cm]{figures/Qmap.pdf}
@@ -337,8 +337,8 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 
 %_______________________________________
 
-\begin{frame}
 \section{Discussion et conclusion}
+\begin{frame}
 
    \begin{itemize}
       \item Non unicité des racines de $f(\Sigma) = 0$
@@ -481,9 +481,19 @@ Simulation en accord avec la valeur théorique
     \begin{equation}
       \bigg(\underbrace{\frac{\Delta x^2}{\Delta t} \bigg.}_\mathrm{vit. num.}\bigg)^{-1} \times
       \underbrace{\bigg.\frac{\nu}{x^2}}_\mathrm{vit. diff.} > 0.5
-    \end{equation}    
+    \end{equation}
   }
   
+\end{frame}
+
+\section{Résultats}
+\subsection{Luminosité}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=\columnwidth]{figures/Ltot_fonction_t_stable.pdf}
+    \caption{Évolution température en fonction du temps, $\dot{M}_0 = 10^{-3}\dot{M_c}$.}
+  \end{figure}
 \end{frame}
 
 \end{document}
