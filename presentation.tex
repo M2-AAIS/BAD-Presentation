@@ -2,7 +2,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
-\usepackage{amsmath}
 
 %\usepackage[abs]{overpic}
 \graphicspath{{figures/}}
@@ -50,14 +49,14 @@
 
    \begin{itemize}
       \item Équation thermique
-      \begin{equation*}
+      \begin{equation}
          Cv\frac{\partial T}{\partial t} = Q^+ + Q^- +Q^{adv}
-      \end{equation*}
+      \end{equation}
       
    \item Équilibre thermique local
-   \begin{equation*}
+   \begin{equation}
       Q^+ = Q^- 
-   \end{equation*}
+   \end{equation}
    
       \begin{itemize}
          \item état stationnaire
@@ -92,28 +91,29 @@
 %_______________________________________
 
 %_______________________________________
-%SCHEMA DU DISQUE
 \begin{frame}
 \frametitle{Ordre des équations}
-
+      
    \begin{figure}[htb!]
-      \includegraphics[width=7cm]{figures/bob_ross.png}
+      \includegraphics[width=9cm]{figures/bob_ross.png}
       \caption{Schéma très simplifié du disque d'accrétion autour d'un trou noir.}
-   \end{figure}
+   \end{figure}      
+      \end{frame}
 
-   \begin{itemize}
+\begin{frame}
+\frametitle{Ordre des équations}
+         \begin{itemize}
       \item Demi-hauteur H du disque
 
       Solution d'une équation quadratique trouvée à partir de la pression :
-      \begin{equation*}
+      \begin{equation}
          P = P_\mathrm{gaz} + P_\mathrm{rad}
-      \end{equation*}
-      
+      \end{equation}
       \item Densité volumique $\rho$
       \item Vitesse du son $c_s$ 
       \item Viscosité $\nu$ 
       \item Flux radiatif $F_z$
-      
+      \\
       2 approximations en fonction de la profondeur optique $\tau_{eff}$
    \end{itemize}
 \end{frame}
@@ -125,27 +125,44 @@
 \begin{frame}
 \frametitle{Détermination de l'intervalle de Température} 
 
-   \begin{equation*}
+   \begin{equation}
       L_\mathrm{Edd} = \frac{4\pi GMm_pc}{\sigma_e}
-   \end{equation*}
+   \end{equation}
 
    puis celle permettant de définir le taux d’accrétion critique 
-   \begin{equation*}
+   \begin{equation}
       \dot{M}_\mathrm{crit} = \frac{12}{c^2}L_\mathrm{Edd} 
-   \end{equation*}
+   \end{equation}
 
    ce qui nous donne une valeur de la température caractéristique $T_0$
-   \begin{equation*}
+   \begin{equation}
       T_0 \approx 2,50.10^7\left(\frac{\dot{M}_0}{\dot{L}_\mathrm{crit}}\right)^{\frac{1}{4}}\left(\frac{M}{M_\odot}\right)^{-\frac{1}{4}} \mathrm{K}
-   \end{equation*}
+   \end{equation}
 
-   Finalement : %Sooooo?  
-   %$T_0 =1.40\ 10^6 \mathrm{K}$. 
-   %\\
-   %$T_\textrm{min} = 2.9\ 10^5 \mathrm{K}$ et $T_\textrm{max} = 6.2\ 10^6 \mathrm{K}$. 
 
 \end{frame}
 %_______________________________________
+
+
+%_______________________________________
+
+\begin{frame}
+\frametitle{Détermination de l'intervalle de Température} 
+
+   Finalement : 
+\begin{eqnarray}
+
+
+   T_0 =1.40\ 10^6 \mathrm{K} 
+   
+   T_\textrm{min} = 2.9\ 10^5 \mathrm{K}
+    
+   T_\textrm{max} = 6.2\ 10^6 \mathrm{K} 
+\end{eqnarray}
+
+\end{frame}
+%_______________________________________
+
 
 %_______________________________________
 
@@ -190,17 +207,15 @@
    \begin{itemize}
       \item Présentation
       \\
-      \begin{equation*}
+      \begin{equation}
          x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}
-      \end{equation*}
+      \end{equation}
 
       \begin{figure}[htb!]
          \includegraphics[width=3cm]{figures/Newton_method.png}
          \caption{Illustration de la méthode de Newton. Crédit: Wikimedia Commons}
       \end{figure}
-      
-      \item Avantages
-      \item Inconvénients
+
    \end{itemize}
 \end{frame}
 %_______________________________________
@@ -237,17 +252,17 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
    \begin{itemize}
       \item Méthode quadratique inverse
 
-      \begin{equation*}
+      \begin{equation}
          s = \frac{af(b)f(c)}{(f(a)-f(b))(f(a)-f(c))} 
   + \frac{\textsl{•}bf(a)f(c)}{(f(b)-f(a))(f(b)-f(c))}
   + \frac{cf(a)f(b)}{(f(c)-f(a))(f(c)-f(b))}
-     \end{equation*}
+     \end{equation}
 
      \item Méthode de la sécante
 
-     \begin{equation*}
+     \begin{equation}
         x_{n+1} = x_n - \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
-     \end{equation*}
+     \end{equation}
 
    \end{itemize}
 \end{frame}
@@ -445,8 +460,8 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 \end{frame}
 
 \begin{frame}
-	\begin{equation*}
-    \begin{aligned}
+	\begin{subequations}
+    \begin{align}
         \frac{\partial S^\star}{\partial t^\star} &= \frac{1}{x^2} \frac{\partial^2}{\partial x^2} \left(\nu^\star S^\star\right) \\
         v^\star &= - \frac{1}{S^\star x} \frac{\partial}{\partial x} \left(\nu^\star S^\star\right) \\
         \nu^\star &= \alpha c_s^\star H^\star \\
@@ -454,15 +469,15 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
         \Sigma^\star &= \frac{S^\star}{x} \\
         \dot{M^\star} &= - x S^\star v^\star \\
         \rho^\star &= \frac{S^\star}{x H^\star} \\
-    \end{aligned}
-\end{equation*}
+    \end{align}
+\end{subequations}
 \end{frame} 
 
 
 
 \begin{frame}
-	\begin{equation*}
-    \begin{aligned}
+	\begin{subequations}
+    \begin{align}
     C_v^\star \frac{\partial T^{\star}}{\partial t^{\star}} &=
         3 v_0^2 \nu^\star {\Omega^\star}^2 - \frac{F_z^\star x}{S^\star} +
         \frac{\mathcal{R} T_0}{\mu} \frac{4-3\beta}{\beta} \frac{T^\star}{S^\star} \times
@@ -477,19 +492,19 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
         \kappa_e &= 0.2 \times (1 + X) \si{\square\centi\meter\per\gram} \approx \SI{0.34}{\square\centi\meter\per\gram} \\
         \epsilon_\mathrm{ff} &= \num{6.22e20} \times \rho^2 T^\frac{1}{2} \mathrm{cgs} \\
         \tau_\mathrm{eff} &= \frac{1}{2} (\kappa_e \kappa_\mathrm{ff})^\frac{1}{2} \frac{S^\star}{x} \Sigma_0 \\
-    \end{aligned}
-\end{equation*}
+    \end{align}
+\end{subequations}
 \end{frame} 
 
 \begin{frame}
-	\begin{equation*}
-    \begin{aligned}
+	\begin{subequations}
+    \begin{align}
      C_v^\star &= \frac{\mathcal{R} T_0}{\mu} \frac{12 (\gamma_g - 1)(1 - \beta) + \beta}{(\gamma_g - 1) \beta} \\
         P_\mathrm{gaz}^\star &= \rho^\star T^\star \\
         P_\mathrm{rad}^\star &= {T^\star}^4 \\
         \beta &= \frac{1}{1 + \beta_0 \frac{{T^\star}^3}{\rho^\star}} = \frac{P_\mathrm{gaz}^\star}{P_\mathrm{gaz}^\star + \beta_0 P_\mathrm{rad}^\star} ; \beta_0 = \frac{P_\mathrm{rad}^0}{P_\mathrm{gaz}^0}
-    \end{aligned}
-\end{equation*}
+    \end{align}
+\end{subequations}
 
 	\begin{itemize}
 		\item Calcul de la demi-hauteur du disque $H$ : Résolution par trinôme
@@ -499,13 +514,13 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 
 	\section{Les conditions initiales}
 \begin{frame}
-	\begin{equation*}
+	\begin{equation}
 	\dot{M} = 1\ 10^{-1 }\dot{M_{0}}
-\end{equation*} 
+\end{equation} 
 
-\begin{equation*}
+\begin{equation}
 	T = 1.4 \times 10^{4} \alpha^{- \frac{1}{5}} \left[ \frac{\dot{M}}{10^{16} \mathrm{g.s}^{-1}} \right]^{\frac{3}{10}} \left[ \frac{M}{M_\odot}\right]^{\frac{1}{4}} \left[ \frac{r}{10^{10}\mathrm{cm}}\right]^{- \frac{3}{4}} f^{\frac{3}{10}} \mathrm{K} 
-\end{equation*}
+\end{equation}
 
 \begin{align}
 	\Sigma = 5.2 \alpha^{- \frac{4}{5}} \left[ \frac{\dot{M}}{10^{16} \mathrm{g.s}^{-1}} \right]^{\frac{7}{10}} \left[ \frac{M}{M_\odot}\right]^{\frac{1}{4}} \left[ \frac{r}{10^{10} \mathrm{cm}}\right]^{- \frac{3}{4}} f^{\frac{7}{10}} \mbox{K}  \\ 
@@ -527,9 +542,9 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 \end{frame}
 
 \begin{frame}
-	\begin{equation*}
+	\begin{equation}
 	\frac{H}{r} = 1.7 \times 10^{-2}\alpha^{- \frac{1}{10}} \left[ \frac{\dot{M}}{10^{16} \mbox{g} \mbox{s}^{-1}} \right]^{\frac{3}{20}} \left[ \frac{M}{M_\odot}\right]^{- \frac{3}{8}} \left[ \frac{r}{10^{10} \mathrm{cm}}\right]^{- \frac{1}{8}} f^{\frac{3}{5}}
-\end{equation*}
+\end{equation}
 \end{frame}
 
 \begin{frame}
@@ -569,42 +584,42 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
   \frametitle{Intégration de $S$ dans le domaine stable}
   \uncover<1->{
     Équation continue:
-    \begin{equation*}
+    \begin{equation}
       \frac{\partial S }{\partial t} = \frac{1}{x^2} \frac{\partial^2}{\partial x^2}\left(\nu S\right)
-    \end{equation*}
+    \end{equation}
     Discrétisable, 2 choix : dérivée en $S^{t+1}$ ou $S^t$
   }
   \uncover<2->{
-    \begin{equation*}
+    \begin{equation}
       \frac{S_n^{t+1} - S_n^t}{\Delta t} = \frac{1}{{x_n}^2}
       \frac{ S_{n-1}^{t+?}\nu_{n-1}^{t}
         - 2S_{n}^{t+?}\nu_{n}^{t}
         + S_{n+1}^{t+?}\nu_{n+1}^{t}}{\Delta x^2}
-    \end{equation*}
+    \end{equation}
   }
 \end{frame}
 \begin{frame}
   \frametitle{Intégration de $S$ dans le domaine stable -- schéma implicite}
   \only<1,4>{
-    \begin{equation*}\begin{aligned}
+    \begin{equation}\begin{aligned}
       S^{t}_n  &= S_{n-1}^{t+1}\left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{n-1}^t}{x_n^2}\right)\\
                &+ S_n^{t+1}\left(1 + 2\frac{\Delta t}{\Delta x^2}\frac{\nu_n^t}{x_n^2}\right) \\
                &+ S_{n+1}^{t+1}\left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{n+1}^t}{x_n^2}\right) \\
-    \end{aligned}\end{equation*}
+    \end{aligned}\end{equation}
 }
   \only<2>{
-    \begin{equation*}\begin{aligned}
+    \begin{equation}\begin{aligned}
       S^{t}_1 &= 0\\
       &+ S_1^{t+1}\left(1 + 2\frac{\Delta t}{\Delta x^2}\frac{\nu_1^t}{x_1^2}\right)\\
       &+ S_{2}^{t+1}\left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{2}^t}{x_1^2}\right)\\
-    \end{aligned}\end{equation*}
+    \end{aligned}\end{equation}
   }
   \only<3>{
-    \begin{equation*}\begin{aligned}
+    \begin{equation}\begin{aligned}
       S^{t}_N + \frac{\Delta t}{\Delta x}\frac{\dot{M}_0 }{x_N^2}
                       &= S^{t+1}_{N-1} \left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{N-1}^t}{x_N^2}\right) \\
                       &+ S_N^{t+1} \left(1 + \frac{\Delta t}{\Delta x^2}\frac{\nu^t_N}{x_N^2}\right )\\
-    \end{aligned}\end{equation*}
+    \end{aligned}\end{equation}
   }
   \uncover<3> {
     Utilise $\frac{\nu_{N+1} S_{N+1} - \nu_{N}S_{N}}{\Delta x} = \dot{M}_0$ 
@@ -616,17 +631,17 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
   \only<1-2>{
     Équation obtenue:
     
-    \begin{equation*}
+    \begin{equation}
       A^t S^{t+1} = S^{t} + \Lambda^t
-    \end{equation*}
+    \end{equation}
     $A^t$ est une matrice tridiagonale réelle, $\Lambda^t$ est une vecteur.
 
     \uncover<2>{
       Solution:
       
-      \begin{equation*}
+      \begin{equation}
         S^{t+1} = \left(A^t\middle)^{-1}\middle[S^t + \Lambda^t\right]
-      \end{equation*}
+      \end{equation}
     }
   }
   \only<3->{
@@ -652,18 +667,18 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 \begin{frame}
   \frametitle{Intégration hors du domaine stable}
   \uncover<1->{
-    \begin{equation*}\begin{aligned}
+    \begin{equation}\begin{aligned}
       S^{t+1}_n  &= S_{n-1}^{t}\left(\frac{\Delta t}{\Delta x^2}\frac{\nu_{n-1}^t}{x_n^2}\right)\\
                &+ S_n^{t}\left(1 - 2\frac{\Delta t}{\Delta x^2}\frac{\nu_n^t}{x_n^2}\right) \\
                &+ S_{n+1}^{t}\left(\frac{\Delta t}{\Delta x^2}\frac{\nu_{n+1}^t}{x_n^2}\right) \\
-    \end{aligned}\end{equation*}  
+    \end{aligned}\end{equation}  
   }
   \uncover<2->{
     Instable ssi
-    \begin{equation*}
+    \begin{equation}
       \bigg(\underbrace{\frac{\Delta x^2}{\Delta t} \bigg.}_\mathrm{vit. num.}\bigg)^{-1} \times
       \underbrace{\bigg.\frac{\nu}{x^2}}_\mathrm{vit. diff.} > 0.5
-    \end{equation*}
+    \end{equation}
   }
   
 \end{frame}
