@@ -245,8 +245,33 @@ Température caractéristique $T_0$
 \end{frame}
 %_______________________________________
 
+
+
+
+%_______________________________________
+\begin{frame}
+\frametitle{Méthode de la sécante}
+
+
+Approximation de la méthode de Newton par
+    \begin{equation}    
+f'(x_n) \approx  \frac{f(x_{n}) - f(x_{n-1})}{x_{n}-x_{n-1}}        
+    \end{equation}  
+     
+ 
+Ce qui donne
+     \begin{equation}
+        x_{n+1} = x_n - \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
+     \end{equation}
+
+\end{frame}
 %_______________________________________
 
+
+
+
+
+%_______________________________________
 \begin{frame}
 \frametitle{Méthode de Brent}
 
@@ -261,12 +286,6 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
     \end{aligned}
     \end{equation}  
      
-
-     \item Méthode de la sécante
-
-     \begin{equation}
-        x_{n+1} = x_n - \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
-     \end{equation}
 
    \end{itemize}
 \end{frame}
