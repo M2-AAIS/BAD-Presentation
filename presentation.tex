@@ -401,7 +401,7 @@ Simulation en accord avec la valeur théorique
 \end{frame}
 %_______________________________________
 %Parie équations adimmensinnement, CI et modèle alpha
-\section{Les variables du modèle}
+\section{Les paramètres du modèle}
 \begin{frame}
 \begin{itemize}
 	\item 6 paramètres d'entrée :
@@ -416,6 +416,54 @@ Simulation en accord avec la valeur théorique
 \end{itemize}
 \end{frame}
 
+	\section{Les conditions initiales}
+\begin{frame}
+	\begin{equation*}
+	\dot{M} = 1\ 10^{-1 }\dot{M_{0}}
+\end{equation*} 
+
+\begin{equation*}
+	T = 1.4 \times 10^{4} \alpha^{- \frac{1}{5}} \left[ \frac{\dot{M}}{10^{16} \mathrm{g.s}^{-1}} \right]^{\frac{3}{10}} \left[ \frac{M}{M_\odot}\right]^{\frac{1}{4}} \left[ \frac{r}{10^{10}\mathrm{cm}}\right]^{- \frac{3}{4}} f^{\frac{3}{10}} \mathrm{K} 
+\end{equation*}
+
+\begin{align}
+	\Sigma = 5.2 \alpha^{- \frac{4}{5}} \left[ \frac{\dot{M}}{10^{16} \mathrm{g.s}^{-1}} \right]^{\frac{7}{10}} \left[ \frac{M}{M_\odot}\right]^{\frac{1}{4}} \left[ \frac{r}{10^{10} \mathrm{cm}}\right]^{- \frac{3}{4}} f^{\frac{7}{10}} \mbox{K}  \\ 
+	\text{avec } f = \left[ 1 - \left( \frac{r}{3 r_{s}}\right)^{- \frac{1}{2}}\right]
+\end{align}
+\end{frame}
+
+\begin{frame}
+ \begin{figure}[ht]
+   \begin{minipage}[c]{.46\linewidth}
+      \includegraphics[scale=0.4]{ic_T.eps}
+      \caption{Tracé de $T(r)$ à $t = 0$}
+   \end{minipage} \hfill
+   \begin{minipage}[c]{.46\linewidth}
+      \includegraphics[scale=0.4]{ic_Sig.eps}
+      \caption{Tracé de $\Sigma(r)$ à $t = 0$}
+   \end{minipage}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+	\begin{equation*}
+	\frac{H}{r} = 1.7 \times 10^{-2}\alpha^{- \frac{1}{10}} \left[ \frac{\dot{M}}{10^{16} \mbox{g} \mbox{s}^{-1}} \right]^{\frac{3}{20}} \left[ \frac{M}{M_\odot}\right]^{- \frac{3}{8}} \left[ \frac{r}{10^{10} \mathrm{cm}}\right]^{- \frac{1}{8}} f^{\frac{3}{5}}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\includegraphics[scale=0.7]{ic_h.eps}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\includegraphics[scale=0.7]{Omega.eps}
+	\end{center}
+\end{frame}
+
+\section{Les variables du modèle}
 \begin{frame}
 \begin{itemize}
 	\item {Tableau récapitulatif des variables}
@@ -460,8 +508,8 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 \end{frame}
 
 \begin{frame}
-	\begin{subequations}
-    \begin{align}
+	\begin{equation*}
+    \begin{aligned}
         \frac{\partial S^\star}{\partial t^\star} &= \frac{1}{x^2} \frac{\partial^2}{\partial x^2} \left(\nu^\star S^\star\right) \\
         v^\star &= - \frac{1}{S^\star x} \frac{\partial}{\partial x} \left(\nu^\star S^\star\right) \\
         \nu^\star &= \alpha c_s^\star H^\star \\
@@ -469,15 +517,15 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
         \Sigma^\star &= \frac{S^\star}{x} \\
         \dot{M^\star} &= - x S^\star v^\star \\
         \rho^\star &= \frac{S^\star}{x H^\star} \\
-    \end{align}
-\end{subequations}
+    \end{aligned}
+\end{equation*}
 \end{frame} 
 
 
 
 \begin{frame}
-	\begin{subequations}
-    \begin{align}
+	\begin{equation*}
+    \begin{aligned}
     C_v^\star \frac{\partial T^{\star}}{\partial t^{\star}} &=
         3 v_0^2 \nu^\star {\Omega^\star}^2 - \frac{F_z^\star x}{S^\star} +
         \frac{\mathcal{R} T_0}{\mu} \frac{4-3\beta}{\beta} \frac{T^\star}{S^\star} \times
@@ -492,73 +540,25 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
         \kappa_e &= 0.2 \times (1 + X) \si{\square\centi\meter\per\gram} \approx \SI{0.34}{\square\centi\meter\per\gram} \\
         \epsilon_\mathrm{ff} &= \num{6.22e20} \times \rho^2 T^\frac{1}{2} \mathrm{cgs} \\
         \tau_\mathrm{eff} &= \frac{1}{2} (\kappa_e \kappa_\mathrm{ff})^\frac{1}{2} \frac{S^\star}{x} \Sigma_0 \\
-    \end{align}
-\end{subequations}
+    \end{aligned}
+\end{equation*}
 \end{frame} 
 
 \begin{frame}
-	\begin{subequations}
-    \begin{align}
+	\begin{equation*}
+    \begin{aligned}
      C_v^\star &= \frac{\mathcal{R} T_0}{\mu} \frac{12 (\gamma_g - 1)(1 - \beta) + \beta}{(\gamma_g - 1) \beta} \\
         P_\mathrm{gaz}^\star &= \rho^\star T^\star \\
         P_\mathrm{rad}^\star &= {T^\star}^4 \\
         \beta &= \frac{1}{1 + \beta_0 \frac{{T^\star}^3}{\rho^\star}} = \frac{P_\mathrm{gaz}^\star}{P_\mathrm{gaz}^\star + \beta_0 P_\mathrm{rad}^\star} ; \beta_0 = \frac{P_\mathrm{rad}^0}{P_\mathrm{gaz}^0}
-    \end{align}
-\end{subequations}
+    \end{aligned}
+\end{equation*}
 
 	\begin{itemize}
 		\item Calcul de la demi-hauteur du disque $H$ : Résolution par trinôme
 	\end{itemize}
 	
 \end{frame} 
-
-	\section{Les conditions initiales}
-\begin{frame}
-	\begin{equation}
-	\dot{M} = 1\ 10^{-1 }\dot{M_{0}}
-\end{equation} 
-
-\begin{equation}
-	T = 1.4 \times 10^{4} \alpha^{- \frac{1}{5}} \left[ \frac{\dot{M}}{10^{16} \mathrm{g.s}^{-1}} \right]^{\frac{3}{10}} \left[ \frac{M}{M_\odot}\right]^{\frac{1}{4}} \left[ \frac{r}{10^{10}\mathrm{cm}}\right]^{- \frac{3}{4}} f^{\frac{3}{10}} \mathrm{K} 
-\end{equation}
-
-\begin{align}
-	\Sigma = 5.2 \alpha^{- \frac{4}{5}} \left[ \frac{\dot{M}}{10^{16} \mathrm{g.s}^{-1}} \right]^{\frac{7}{10}} \left[ \frac{M}{M_\odot}\right]^{\frac{1}{4}} \left[ \frac{r}{10^{10} \mathrm{cm}}\right]^{- \frac{3}{4}} f^{\frac{7}{10}} \mbox{K}  \\ 
-	\text{avec } f = \left[ 1 - \left( \frac{r}{3 r_{s}}\right)^{- \frac{1}{2}}\right]
-\end{align}
-\end{frame}
-
-\begin{frame}
- \begin{figure}[ht]
-   \begin{minipage}[c]{.46\linewidth}
-      \includegraphics[scale=0.42]{ic_T.eps}
-      \caption{Tracé de $T(r)$ à $t = 0$}
-   \end{minipage} \hfill
-   \begin{minipage}[c]{.46\linewidth}
-      \includegraphics[scale=0.42]{ic_Sig.eps}
-      \caption{Tracé de $\Sigma(r)$ à $t = 0$}
-   \end{minipage}
-\end{figure} 
-\end{frame}
-
-\begin{frame}
-	\begin{equation}
-	\frac{H}{r} = 1.7 \times 10^{-2}\alpha^{- \frac{1}{10}} \left[ \frac{\dot{M}}{10^{16} \mbox{g} \mbox{s}^{-1}} \right]^{\frac{3}{20}} \left[ \frac{M}{M_\odot}\right]^{- \frac{3}{8}} \left[ \frac{r}{10^{10} \mathrm{cm}}\right]^{- \frac{1}{8}} f^{\frac{3}{5}}
-\end{equation}
-\end{frame}
-
-\begin{frame}
-	\begin{center}
-		\includegraphics[scale=0.7]{ic_h.eps}
-	\end{center}
-\end{frame}
-
-\begin{frame}
-	\begin{center}
-		\includegraphics[scale=0.7]{Omega.eps}
-	\end{center}
-\end{frame}
-
 
 
 %_______________________________________
