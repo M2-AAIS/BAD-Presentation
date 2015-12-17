@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{xcolor}		
 \usetheme{Warsaw}
 
 \usepackage{caption}
@@ -379,7 +380,8 @@ Simulation en accord avec la valeur théorique
 \end{frame}
 %_______________________________________
 
-
+%_______________________________________
+\section{Intégration
 \begin{frame}
     \frametitle{Conditions aux bords}
 \end{frame}
@@ -411,7 +413,8 @@ Simulation en accord avec la valeur théorique
       S^{t+1}_n  &= S_{n-1}^{t}\left(\frac{\Delta t}{\Delta x^2}\frac{\nu_{n-1}^t}{x_n^2}\right)\\
                &+ S_n^{t}\left(1 - 2\frac{\Delta t}{\Delta x^2}\frac{\nu_n^t}{x_n^2}\right) \\
                &+ S_{n+1}^{t}\left(\frac{\Delta t}{\Delta x^2}\frac{\nu_{n+1}^t}{x_n^2}\right) \\
-    \end{aligned}\end{equation}  
+    \end{aligned}
+    \end{equation}  
   }
   \uncover<2->{
     Instable ssi
