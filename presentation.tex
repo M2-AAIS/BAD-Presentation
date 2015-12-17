@@ -1,4 +1,6 @@
 \documentclass[french]{beamer}
+\setbeamertemplate{navigation symbols}{}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -20,9 +22,9 @@
 \captionsetup{font=scriptsize,labelfont=scriptsize}
 \setbeamertemplate{caption}[numbered]
 
-
-
-
+\usepackage{amsmath}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\e}{e}
 
 \begin{document}
 
@@ -410,6 +412,28 @@ Simulation en accord avec la valeur théorique
 %_______________________________________
 \section{Intégration}
 
+\begin{frame}
+    \frametitle{Dérivées numériques spatiales}
+    Étude d’une perturbation $\delta{u} = \tilde{u}(t) \e^{ikr}$ de $u(r,t)$ dans :
+    \begin{equation*}
+        \frac{\partial u}{\partial t} + v \frac{\partial u}{\partial r} = 0
+    \end{equation*}
+    On a :
+    \begin{align*}
+        \frac{\partial u_j}{\partial r} &\approx \frac{u_{j+1} - u_j    }{  \Delta{r}} &&\Rightarrow \tilde{u} = \tilde{u(0)} \e^{-i k v t} \e^{ v\frac{k^2}{2}t}\\
+        \frac{\partial u_j}{\partial r} &\approx \frac{u_j     - u_{j-1}}{  \Delta{r}} &&\Rightarrow \tilde{u} = \tilde{u(0)} \e^{-i k v t} \e^{-v\frac{k^2}{2}t}\\
+        \frac{\partial u_j}{\partial r} &\approx \frac{u_{j+1} - u_{j-1}}{2 \Delta{r}} &&\Rightarrow \tilde{u} = \tilde{u(0)} \e^{-i k v t \sinc(k \Delta{r})}
+    \end{align*}
+    Dérivée « amont » :
+    \begin{equation*}
+        \frac{\partial u_j}{\partial r} = \frac{\max(v,0) \left[u_{j+1} - u_j \right] + \min(v,0) \left[u_j - u_{j-1}\right]}{\Delta{r}}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Conditions aux bords}
+\end{frame}
+
 \include{condition_limite}
 
 \begin{frame}
@@ -419,10 +443,14 @@ Simulation en accord avec la valeur théorique
 \begin{frame}
     \frametitle{Algorithme de la simulation}
     Pseudo-code
+    \begin{minipage}{.5\textwidth}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+    \end{minipage}
 \end{frame}
 
 \begin{frame}
-    %ICI QMAP POUR EXPLIQUER
+    \includegraphics{Qmap.pdf}
 \end{frame}
 
 \subsection{Domaine stable}
@@ -548,5 +576,3 @@ Simulation en accord avec la valeur théorique
   \end{figure}  
 \end{frame}
 \end{document}
-
-\grid
