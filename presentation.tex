@@ -48,12 +48,12 @@
 \frametitle{Mise en équation}
 
    \begin{itemize}
-      \item Equation thermique
+      \item Équation thermique
       \begin{equation}
          Cv\frac{\partial T}{\partial t} = Q^+ + Q^- +Q^{adv}
       \end{equation}
       
-   \item Equilibre thermique local
+   \item Équilibre thermique local
    \begin{equation}
       Q^+ = Q^- 
    \end{equation}
@@ -83,7 +83,7 @@
             \item Méthode de Brent
             \item Comparaison des différentes méthodes
          \end{itemize}
-      \item Epaisseur optique
+      \item Épaisseur optique
    \end{itemize}
 \end{frame}
 %_______________________________________
@@ -334,7 +334,7 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 
 %_______________________________________
 
-\section{Epaisseur optique}
+\section{Épaisseur optique}
 \begin{frame}
 
    \begin{figure}[htb!]
@@ -565,7 +565,7 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 
 \subsection{Domaine stable}
 \begin{frame}
-  \frametitle{Intégration dans le domaine stable}
+  \frametitle{Intégration de $S$ dans le domaine stable}
   \uncover<1->{
     Équation continue:
     \begin{equation}
@@ -583,7 +583,7 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
   }
 \end{frame}
 \begin{frame}
-  \frametitle{Intégration dans le domaine stable -- schéma implicite}
+  \frametitle{Intégration de $S$ dans le domaine stable -- schéma implicite}
   \only<1,4>{
     \begin{equation}\begin{aligned}
       S^{t}_n  &= S_{n-1}^{t+1}\left(-\frac{\Delta t}{\Delta x^2}\frac{\nu_{n-1}^t}{x_n^2}\right)\\
@@ -611,7 +611,7 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 \end{frame}
 
 \begin{frame}
-  \frametitle{Intégration dans le domaine stable -- schéma implicite}
+  \frametitle{Intégration de $S$  dans le domaine stable -- schéma implicite}
   \only<1-2>{
     Équation obtenue:
     
@@ -634,7 +634,7 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 \end{frame}
 
 \begin{frame}
-  \frametitle{Intégration dans le domaine stable -- schéma implicite}
+  \frametitle{Intégration de $S$ dans le domaine stable -- schéma implicite}
   {\huge Avantages, inconvénients}
   
   \begin{itemize}
