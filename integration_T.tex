@@ -1,0 +1,29 @@
+\subsection{intégration explicite de T}
+
+%--------------------------
+\begin{frame}
+\frametitle{Intégration de T}
+
+\'Equation continue :
+$$ \frac{\partial T^*}{\partial t} = f(T,S)$$
+
+Développement limité de $f$ :
+$$ f = f_0 + \frac{\partial f}{\partial T} \Delta T + \frac{\partial f}{\partial S} \Delta S$$
+
+\end{frame}
+%--------------------------
+
+%--------------------------
+\begin{frame}
+\frametitle{Intégration de T}
+\begin{itemize}
+
+\item domaine stable : $\tau_{\nu} \gg \tau_T$ 
+$$T^{t+1} = T^t + \frac{f_0}{f'_T} \left( e^{f'_T \Delta t} - 1 \right) $$
+
+\item domaine instable : $\Delta t\ f'_T$
+$$T^{t+1} = T^t + f_0 \Delta t$$
+
+\end{itemize}
+\end{frame}
+%--------------------------
