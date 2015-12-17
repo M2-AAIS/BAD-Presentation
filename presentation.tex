@@ -1,0 +1,301 @@
+\documentclass[french]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usetheme{Warsaw}
+
+\usepackage{caption}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+
+
+\begin{document}
+
+
+
+\begin{frame}
+\frametitle{Courbe en S}
+\framesubtitle{Sommaire}
+\tableofcontents[currentsection]
+\end{frame}
+
+
+
+\begin{frame}
+\section{Présentation du problème}
+\frametitle{Mise en équation}
+
+
+\begin{itemize}
+
+\item Equation thermique
+\begin{equation}
+Cv\frac{\partial T}{\partial t} = Q^+ + Q^- +Q^{adv}
+\end{equation}
+
+\item Equilibre thermique local
+\begin{equation}
+Q^+ = Q^- 
+\end{equation}
+
+\begin{itemize}
+\item état stationnaire
+\\
+\item dépend de la position
+\item courbes en S pour 256 valeurs du rayon
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\section{Résolution des équations}
+
+\frametitle{Résolution des équations}
+\begin{itemize}
+\item Ordre des équations
+\item Détermination de la température
+\item Méthodes de résolution
+\begin{itemize}
+\item Dichotomie
+\item Amélioration de la dichotomie
+\item Méthode de Brent
+\item Comparaison des différentes méthodes
+\end{itemize}
+\item Epaisseur optique
+\end{itemize}
+\end{frame}
+
+%SHEMA DU DISQUE
+\begin{frame}
+\frametitle{Ordre des équations}
+\begin{itemize}
+
+\item Demi-hauteur H du disque
+
+Solution d'une équation quadratique trouvée à partir de la pression :
+
+\begin{equation}
+P = P_\mathrm{gaz} + P_\mathrm{rad}
+\end{equation}
+
+\item Densité volumique $\rho$
+\item Vitesse du son $c_s$ 
+\item Viscosité $\nu$ 
+
+\item Flux radiatif $F_z$
+
+2 approximations en fonction de la profondeur optique $\tau_{eff}$
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Détermination de l'intervalle de Température} 
+\begin{equation}
+L_\mathrm{Edd} = \frac{4\pi GMm_pc}{\sigma_e}
+\end{equation}
+puis celle permettant de définir le taux d’accrétion critique 
+\begin{equation}
+\dot{M}_\mathrm{crit} = \frac{12}{c^2}L_\mathrm{Edd} 
+\end{equation}
+ce qui nous donne une valeur de la température caractéristique $T_0$
+\begin{equation}
+T_0 \approx 2,50.10^7\left(\frac{\dot{M}_0}{\dot{L}_\mathrm{crit}}\right)^{\frac{1}{4}}\left(\frac{M}{M_\odot}\right)^{-\frac{1}{4}} \mathrm{K}
+\end{equation}
+Finalement : %Sooooo? 
+%$T_0 =1.40\ 10^6 \mathrm{K}$. 
+%\\
+%$T_\textrm{min} = 2.9\ 10^5 \mathrm{K}$ et $T_\textrm{max} = 6.2\ 10^6 \mathrm{K}$. 
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Dichotomie}
+\begin{itemize}
+\item Racine $f(\Sigma) = Q^+ - Q^- = 0$ comprise dans un intervalle $[\Sigma_{min}$ ; $\Sigma_{max}]$
+\\
+schéma!!!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Amélioration de la dichotomie}
+\framesubtitle{Méthode de Newton}
+%\setbeamertemplate{itemize item}[square]
+\begin{itemize}
+\item Présentation
+\\
+\begin{equation}
+x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}
+\end{equation}
+\begin{figure}[htb!]
+\includegraphics[width=3cm]{figures/Newton_method.png}
+\caption{Illustration de la méthode de Newton. Crédit: Wikimedia Commons}
+\end{figure}
+\item Avantages
+\item Inconvénients
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Amélioration de la dichotomie}
+\framesubtitle{Méthode de Newton}
+%\setbeamertemplate{itemize item}[square]
+\begin{itemize}
+\item Avantages :
+\begin{itemize}
+\item Convergence quadratique
+\end{itemize}
+\item Inconvénients :
+\begin{itemize}
+\item Nécessite le calcul littéral de la dérivée.
+\item La fonction doit être obligatoirement de classe $C^1$
+\item S'il existe plusieurs racines, ne converge pas forcément vers la plus proche du point de départ.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Méthode de Brent}
+Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation quadratique inverse pour en utiliser tous leurs avantages
+\begin{itemize}
+\item Méthode quadratique inverse
+\begin{equation}
+  s = \frac{af(b)f(c)}{(f(a)-f(b))(f(a)-f(c))} 
+  + \frac{bf(a)f(c)}{(f(b)-f(a))(f(b)-f(c))}
+  + \frac{cf(a)f(b)}{(f(c)-f(a))(f(c)-f(b))}
+\end{equation}
+
+\item Méthode de la sécante
+
+\begin{equation}
+x_{n+1} = x_n - \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
+\end{equation}
+
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Méthode de Brent}
+\begin{itemize}
+\item Si le dénominateur ne s'annule pas, on utilise la méthode quadratique inverse.
+\item Autrement on utilise la méthode de la sécante sauf s'il on est trop éloigné de la solution.
+\item Dans ce cas, on utilise la méthode de la dichotomie.
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Comparaison des différentes méthodes}
+\begin{figure}[htb!]
+\includegraphics[width=9cm]{figures/brent_method3.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparaison des différentes méthodes}
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  Méthode & + & - \\
+  \hline
+  \\
+  Dichotomie & simple & beaucoup d'itérations  \\
+  \\  
+  \hline
+  \\
+  Newton & plus rapide  & fonction dérivable \\
+  \\ 
+  \hline
+  \\  
+  Sécante & pas de dérivée & intervalle de départ \\
+  \\  
+  \hline  
+  \\  
+  Brent & interpolation quadratique inverse & convergence rapide \\
+  \\  
+  \hline
+\end{tabular}
+\end{frame}
+
+
+
+\begin{frame}
+\section{Détermination des points critiques}
+\frametitle{Zones de stabilité}
+\begin{figure}[htb!]
+\includegraphics[width=8cm]{figures/stable.pdf}
+%LOG!!!
+\caption{Zones de stabilités de la courbe en S.}
+\end{figure}
+\end{frame}
+%utilisation du graphe + ajout des points critiques dessus
+%\begin{frame}
+%\frametitle{Points critiques}
+%\end{frame}
+
+\begin{frame}
+\section{Epaisseur Optique}
+\begin{figure}[htb!]
+\includegraphics[width=8cm]{figures/tau_map.pdf}
+%\caption{ }
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\section{Différence des termes Q+ et Q-}
+\begin{figure}[htb!]
+\includegraphics[width=8cm]{figures/Qmap.pdf}
+%\caption{ }
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\section{Discussion et conclusion}
+\begin{itemize}
+
+\item Non unicité des racines de $f(\Sigma) = 0$
+\\
+\begin{itemize}
+\item Interpolation du $\tau_{eff} \approx 1$ critique
+\item Existance de plusieurs branches minces ? 
+\end{itemize}  
+ 
+
+\item $\tau_{eff} \simeq 0.06 et \neq 1$ 
+\\
+Simulation en accord avec la valeur théorique
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\begin{figure}[htb!]
+\includegraphics[width=9cm]{figures/S_curves_tau.eps}
+%\caption{ }
+\end{figure}
+\end{frame}
+
+\end{document}
+
+\grid
