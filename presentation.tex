@@ -20,6 +20,15 @@
    \tableofcontents[currentsection]
 \end{frame}
 
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table des matières}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
 
 %_______________________________________
 \begin{frame}
@@ -356,7 +365,8 @@ Simulation en accord avec la valeur théorique
 \end{frame}
 %_______________________________________
 
-
+%_______________________________________
+\section{Intégration}
 \begin{frame}
     \frametitle{Conditions aux bords}
 \end{frame}
@@ -374,6 +384,7 @@ Simulation en accord avec la valeur théorique
     %ICI QMAP POUR EXPLIQUER
 \end{frame}
 
+\subsection{Domaine stable}
 \begin{frame}
   \frametitle{Intégration dans le domaine stable}
   \uncover<1->{
@@ -454,6 +465,8 @@ Simulation en accord avec la valeur théorique
   
 \end{frame}
 
+\subsection{Domaine instable}
+
 \begin{frame}
   \frametitle{Intégration hors du domaine stable}
   \uncover<1->{
@@ -464,12 +477,11 @@ Simulation en accord avec la valeur théorique
     \end{aligned}\end{equation}  
   }
   \uncover<2->{
-    Instable si
+    Instable ssi
     \begin{equation}
-      \underbrace{\left( \frac{\Delta x^2}{\Delta t} \right)^{-1}}_\mathrm{vit. num.} \times
-      \underbrace{\bigg.\frac{\nu}{x^2}\bigg.}_\mathrm{vit. diff.} > 0.5
-    \end{equation}
-    
+      \bigg(\underbrace{\frac{\Delta x^2}{\Delta t} \bigg.}_\mathrm{vit. num.}\bigg)^{-1} \times
+      \underbrace{\bigg.\frac{\nu}{x^2}}_\mathrm{vit. diff.} > 0.5
+    \end{equation}    
   }
   
 \end{frame}
