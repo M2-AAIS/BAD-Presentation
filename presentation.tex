@@ -565,7 +565,7 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 
 \subsection{Domaine stable}
 \begin{frame}
-  \frametitle{Intégration de $S$ dans le domaine stable}
+  \frametitle{Intégration de $S$}
   \uncover<1->{
     Équation continue:
     \begin{equation}
@@ -606,12 +606,12 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
     \end{aligned}\end{equation}
   }
   \uncover<3> {
-    Utilise $\frac{\nu_{N+1} S_{N+1} - \nu_{N}S_{N}}{\Delta x} = \dot{M}_0$ 
+    qui utilise $\frac{\nu_{N+1} S_{N+1} - \nu_{N}S_{N}}{\Delta x} = \dot{M}_0$ 
   }
 \end{frame}
 
 \begin{frame}
-  \frametitle{Intégration de $S$  dans le domaine stable -- schéma implicite}
+  \frametitle{Intégration de $S$ dans le domaine stable -- schéma implicite}
   \only<1-2>{
     Équation obtenue:
     
@@ -647,7 +647,7 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 \subsection{Domaine instable}
 
 \begin{frame}
-  \frametitle{Intégration hors du domaine stable}
+  \frametitle{Intégration hors du domaine stable -- schéma explicite}
   \uncover<1->{
     \begin{equation}\begin{aligned}
       S^{t+1}_n  &= S_{n-1}^{t}\left(\frac{\Delta t}{\Delta x^2}\frac{\nu_{n-1}^t}{x_n^2}\right)\\
@@ -678,9 +678,24 @@ $F_z$ & $F_z^\star = F_z/F_z^0$ & $F_z^0 = \frac{\Sigma_0}{2 t_0} = \frac{\rho_0
 \subsection{Régime instable}
 
 \begin{frame}
+  \only<1>{
+    \begin{figure}
+      \includegraphics{figures/Ltot_fonction_t.pdf}
+      \caption{Évolution température en fonction du temps, $\dot{M}_{t=0}$ variable.}
+    \end{figure}  
+  }
+  \only<2>{
+    \begin{figure}
+      \includegraphics{figures/Ltot_fonction_t_zoom.pdf}
+      \caption{Évolution température en fonction du temps, $\dot{M}_{t=0}$ variable.}
+    \end{figure}  
+  }
+\end{frame}
+\begin{frame}
+  
   \begin{figure}
-    \includegraphics[width=.9\columnwidth]{figures/Ltot_fonction_t.pdf}
-    \caption{Évolution température en fonction du temps, $\dot{M}_{t=0}$ variable.}
+    \includegraphics{figures/Ltot_et_Mtot_fonction_t_zoom.pdf}
+    \caption{Évolution masse et luminosité à l'instabilité en fonction du temps.}
   \end{figure}  
 \end{frame}
 \end{document}
