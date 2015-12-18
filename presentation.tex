@@ -15,6 +15,10 @@
 \usetheme{Hannover}
 \useoutertheme{infolines}
 %%%%%%%%
+\makeatletter
+\beamer@nav@subsectionstyle{show/show/hide}
+\makeatother
+
 \hypersetup{pdfpagemode=FullScreen}
 
 \usepackage{siunitx}
@@ -237,6 +241,14 @@
   \begin{figure}
     \includegraphics[width=.9\columnwidth]{figures/Ltot_fonction_t.pdf}
     \caption{Évolution température en fonction du temps, $\dot{M}_{t=0}$ variable.}
+  \end{figure}  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{figure}
+    \includegraphics{figures/Ltot_et_Mtot_fonction_t_zoom.pdf}
+    \caption{Évolution masse et luminosité à l'instabilité en fonction du temps.}
   \end{figure}  
 \end{frame}
 
