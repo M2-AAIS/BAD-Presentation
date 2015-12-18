@@ -70,7 +70,7 @@
       \item Vitesse du son $c_s$ 
       \item Viscosité $\nu$ 
       \item Flux radiatif $F_z$
-      \\
+      \\~\\
       2 approximations en fonction de la profondeur optique $\tau_{eff}$
    \end{itemize}
 \end{frame}
@@ -105,13 +105,13 @@ Température caractéristique $T_0$
 \begin{frame}
 \frametitle{Détermination de l'intervalle de Température} 
 
-   Finalement : 
+   Finalement :\\~\\ 
 
- $ T_0 =1.40\ 10^6 \mathrm{K} $
+ $ T_0 =1.40\ 10^6 \mathrm{K} $ \\~\\
    
- $  T_{min} = 2.9\ 10^5 \mathrm{K} $
+ $  T_{min} = 2.9\ 10^5 \mathrm{K} $ \\~\\
     
-  $ T_{max} = 6.2\ 10^6 \mathrm{K} $
+  $ T_{max} = 6.2\ 10^6 \mathrm{K} $ \\~\\
 \end{frame}
 %_______________________________________
 
@@ -122,8 +122,8 @@ Température caractéristique $T_0$
 \frametitle{Dichotomie}
 
    \begin{itemize}
-      \item Racine $f(\Sigma) = Q^+ - Q^- = 0$ comprise dans un intervalle $[\Sigma_{min}$ ; $\Sigma_{max}]$
-      \\
+      \item Racine $f(\Sigma) = Q^+ - Q^- = 0$
+      \\ comprise dans un intervalle $[\Sigma_{min}$ ; $\Sigma_{max}]$
       \begin{figure}[htb!]
          \includegraphics[width=8cm]{figures/dicho_1.png}
       \end{figure}
@@ -165,7 +165,8 @@ Température caractéristique $T_0$
 
       \begin{figure}[htb!]
          \includegraphics[width=3cm]{figures/Newton_method.png}
-         \caption{Illustration de la méthode de Newton. Crédit: Wikimedia Commons}
+         \caption{Illustration de la méthode de Newton.\\~\\
+          Crédit: Wikimedia Commons}
       \end{figure}
 
    \end{itemize}
@@ -184,6 +185,7 @@ Température caractéristique $T_0$
          \begin{itemize}
             \item Convergence quadratique
          \end{itemize}
+         ~
       \item Inconvénients :
       \begin{itemize}
          \item Nécessite le calcul littéral de la dérivée.
@@ -247,8 +249,8 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 \frametitle{Méthode de Brent}
 
    \begin{itemize}
-      \item Si dénominateur $\ne$ 0 méthode quadratique inverse.
-      \item Sinon méthode de la sécante sauf si l'on est trop éloigné de la solution.
+      \item Si dénominateur $\ne$ 0 méthode quadratique inverse.\\~\\
+      \item Sinon méthode de la sécante sauf si l'on est trop éloigné de la solution.\\~\\
       \item Dans ce cas, on utilise la méthode de la dichotomie.
    \end{itemize}
 \end{frame}
@@ -271,27 +273,29 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 \begin{frame}
 \frametitle{Comparaison des différentes méthodes}
 
+   \scalebox{0.85}{
    \begin{tabular}{|c|c|c|}
      \hline
         Méthode & + & - \\
      \hline
-     \\
+     \\~\\
      Dichotomie & simple & beaucoup d'itérations  
-     \\  
+     \\~\\  
      \hline
-     \\
+     \\~\\
      Newton & plus rapide  & fonction dérivable 
-     \\ 
+     \\~\\
      \hline
-     \\  
+     \\~\\  
      Sécante & pas de dérivée & intervalle de départ 
-     \\  
+     \\~\\  
      \hline  
-     \\  
-     Brent & interpolation quadratique inverse & convergence rapide 
-     \\  
+     \\~\\  
+     Brent & convergence rapide & sauf pour des images proches 
+     \\~\\ 
      \hline
    \end{tabular}
+   }
 \end{frame}
 %_______________________________________
 
@@ -314,7 +318,7 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 \frametitle{Points critiques}		
 		
    \begin{figure}[htb!]		
-      \includegraphics[width=8cm]{figures/points_critiques.png}		
+      \includegraphics[width=10cm]{figures/points_critiques.png}		
       \caption{Localisation des points critiques sur la courbe en S.}		
     \end{figure}		
 \end{frame}		
@@ -333,14 +337,14 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 %_______________________________________
 
 %_______________________________________
-\subsection*{Différence des termes Q+ et Q-}
-\begin{frame}
+%\subsection*{Différence des termes Q+ et Q-}
+%\begin{frame}
 
-   \begin{figure}[htb!]
-      \includegraphics[width=8cm]{figures/Qmap.pdf}
+%   \begin{figure}[htb!]
+%      \includegraphics[width=8cm]{figures/Qmap.pdf}
      %\caption{ }
-   \end{figure}
-\end{frame}
+%   \end{figure}
+%\end{frame}
 %_______________________________________
 
 %_______________________________________
@@ -350,13 +354,13 @@ Combinaison des méthodes de la dichotomie, de la sécante et l'interpolation qu
 
    \begin{itemize}
       \item Non unicité des racines de $f(\Sigma) = 0$
-      \\
+      \\~\\
          \begin{itemize}
             \item Interpolation du $\tau_{eff} \approx 1$ critique
             \item Existance de plusieurs branches minces ? 
          \end{itemize}  
       \item $\tau_{eff} \simeq 0.06 et \neq 1$ 
-      \\
+      \\~\\
 Simulation en accord avec la valeur théorique
    \end{itemize}
 \end{frame}
